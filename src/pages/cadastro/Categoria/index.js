@@ -20,8 +20,13 @@ function CadastroCategoria() {
     });
   }
 
+  const handleChange = (event) => {
+    setValue(event.target.name, event.target.value);
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(values);
     setCategorias([...categorias, values]);
   };
 
@@ -35,10 +40,9 @@ function CadastroCategoria() {
               Nome da Categoria:
               <input
                 type="text"
+                name="nome"
                 value={values.nome}
-                onChange={(event) => {
-                  setValue("nome", event.target.value);
-                }}
+                onChange={handleChange}
               />
             </label>
           </div>
@@ -47,10 +51,9 @@ function CadastroCategoria() {
               Descrição:
               <textarea
                 type="text"
+                name="descricao"
                 value={values.descricao}
-                onChange={(event) => {
-                  setValue("descricao", event.target.value);
-                }}
+                onChange={handleChange}
               />
             </label>
           </div>
@@ -59,10 +62,9 @@ function CadastroCategoria() {
               Cor:
               <input
                 type="color"
+                name="cor"
                 value={values.cor}
-                onChange={(event) => {
-                  setValue("cor", event.target.value);
-                }}
+                onChange={handleChange}
               />
             </label>
           </div>
