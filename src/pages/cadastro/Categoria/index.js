@@ -3,15 +3,15 @@ import PageDefault from "../../../components/PageDefault";
 import { Link } from "react-router-dom";
 
 function CadastroCategoria() {
-  const [categorias, setCategorias] = useState([]);
-
   const valoresIniciais = {
     nome: "",
     descricao: "",
-    cor: "#000",
+    cor: "",
   };
-
+  const [categorias, setCategorias] = useState([]);
   const [values, setValues] = useState(valoresIniciais);
+
+
 
   function setValue(chave, valor) {
     setValues({
@@ -21,13 +21,15 @@ function CadastroCategoria() {
   }
 
   const handleChange = (event) => {
-    setValue(event.target.name, event.target.value);
+    const { name, value } = event.target;
+    setValue(name, value);
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(values);
     setCategorias([...categorias, values]);
+    setValues(valoresIniciais);
   };
 
   return (
