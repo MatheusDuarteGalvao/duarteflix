@@ -1,10 +1,10 @@
 import React from 'react';
 
-function FormField({ type, name, value, handleChange }) {
+function FormField({ label, type, name, value, handleChange }) {
   return (
     <div>
       <label>
-        Nome da Categoria:
+        {label}
         <input
           type={type}
           name={name}
